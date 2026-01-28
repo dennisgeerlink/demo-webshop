@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Fruit Shop - Fresh Fruits Online</title>
+    <title>Slot Machine - Fruit Shop</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -34,45 +34,27 @@
       </div>
     </header>
     <main id="main-content" role="main">
-      <h1 class="products-title">Products</h1>
-      <ul class="emoji-list" role="list" aria-label="Product list">
-        <li>
-          <a
-            href="product-apple.html"
-            class="emoji-box"
-            aria-label="View Apple product details"
-            >🍏</a
+      <div class="content-box">
+        <h1>🎰 Slot Machine</h1>
+        <div class="product-desc" aria-label="Product description">
+          Spin the wheel and win a random fruit!
+        </div>
+        <div class="slot-machine-container">
+          <div class="slot-reel" id="slotReel" aria-label="Spinning slot reel">
+            🍏
+          </div>
+        </div>
+        <div class="slot-result" id="slotResult" aria-live="polite"></div>
+        <div class="button-container">
+          <button
+            id="spinButton"
+            class="cart-action-btn"
+            aria-label="Spin the slot machine"
           >
-          <a href="product-apple.html">Go to Apple</a>
-        </li>
-        <li>
-          <a
-            href="product-banana.html"
-            class="emoji-box"
-            aria-label="View Banana product details"
-            >🍌</a
-          >
-          <a href="product-banana.html">Go to Banana</a>
-        </li>
-        <li>
-          <a
-            href="product-lemon.html"
-            class="emoji-box"
-            aria-label="View Lemon product details"
-            >🍋</a
-          >
-          <a href="product-lemon.html">Go to Lemon</a>
-        </li>
-        <li>
-          <a
-            href="slot-machine.html"
-            class="emoji-box"
-            aria-label="Play Slot Machine"
-            >🎰</a
-          >
-          <a href="slot-machine.html">Go to Slot Machine</a>
-        </li>
-      </ul>
+            Spin & Add to Basket
+          </button>
+        </div>
+      </div>
     </main>
     <footer>
       <a
@@ -84,5 +66,10 @@
       </a>
     </footer>
     <script src="shop.js"></script>
+    <script>
+      document.getElementById("spinButton").onclick = function () {
+        spinSlotMachine();
+      };
+    </script>
   </body>
 </html>

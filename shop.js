@@ -84,3 +84,51 @@ window.clearBasket = function () {
   origClearBasket();
   renderBasketIndicator();
 };
+
+function getRandomFruit() {
+  const fruits = Object.keys(PRODUCTS);
+  return fruits[Math.floor(Math.random() * fruits.length)];
+}
+
+function spinSlotMachine() {
+  const slotReel = document.getElementById("slotReel");
+  const spinButton = document.getElementById("spinButton");
+  const slotResult = document.getElementById("slotResult");
+
+  if (!slotReel || !spinButton) return;
+
+  // Disable button and clear result during spin
+  spinButton.disabled = true;
+  slotResult.textContent = "";
+
+  // Animate the reel
+  const spinDuration = 1500; // 1.5 seconds
+  const startTime = Date.now();
+  const fruits = Object.keys(PRODUCTS);
+
+  const spinAnimation = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    if (elapsed < spinDuration) {
+      // Randomly select a fruit to display during spin
+      const randomIndex = Math.floor(Math.random() * fruits.length);
+      const fruitKey = fruits[randomIndex];
+      slotReel.textContent = PRODUCTS[fruitKey].emoji;
+    } else {
+      // Stop spinning and select final fruit
+      clearInterval(spinAnimation);
+      const selectedFruit = getRandomFruit();
+      const fruitData = PRODUCTS[selectedFruit];
+      
+      // Display final result
+      slotReel.textContent = fruitData.emoji;
+      slotResult.textContent = `You won: ${fruitData.name}!`;
+      slotResult.style.color = "#4caf50";
+
+      // Add fruit to basket
+      addToBasket(selectedFruit);
+
+      // Re-enable button
+      spinButton.disabled = false;
+    }
+  }, 50);
+}
