@@ -353,3 +353,39 @@ footer a {
   color: green;
   margin-top: 1rem;
 }
+
+.slot-machine-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slot-reel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 5px solid #111;
+  border-radius: 15px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  transition: transform 0.05s;
+}
+
+.slot-result {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  min-height: 1.5rem;
+  text-align: center;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: scale(1);
+}
